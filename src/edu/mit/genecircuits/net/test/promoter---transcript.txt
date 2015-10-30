@@ -1,0 +1,5 @@
+Promoter	Transcript	Distance	Gene
+p1	t1	0	g1
+p2	t1	0	g1
+p3	t2	0	g1
+p4	t3	0	g2

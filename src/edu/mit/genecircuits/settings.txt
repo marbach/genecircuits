@@ -1,0 +1,116 @@
+##########################################################################
+# Configuration file for Network-based Gene Set Enrichment Analysis (N-GSEA)
+# 
+# All variables that are loaded by NgseaSettings must be specified in this file,
+# otherwise an error message is displayed.
+#
+# Boolean values: 0 => false, 1 => true
+##########################################################################
+
+
+##########################################################################
+# VARIOUS
+
+# Mode: 
+# 1 => Data preprocessing (directly edit code to choose what to run)
+# 2 => Construct regulatory circuits
+mode = 2
+# Seed for the random number generator, set to -1 to use current time
+randomSeed = 42
+# Default output directory to save files (empty = home directory; '.' = working directory)
+outputDirectory = .
+#outputDirectory = data/kernels
+# Compress output files (gzip)
+compressFiles = 0
+
+
+##########################################################################
+# CONSTRUCT REGULATORY CIRCUITS
+
+# ========================================================================
+# INPUT FILES
+
+# Suffix used for all files
+suffix = .prec90
+# Base directory of circuit files
+circuitDir = results/fantom5/fantom5_net
+# Circuit output directory
+#circuitOutDir = results/fantom5/fantom5_net/tfGeneNet
+circuitOutDir = results/fantom5/fantom5_net/tfRegionNet
+
+# tf---promoter file prefix
+tfPromoterFile = global/tf---promoter
+# promoter---transcript file prefix
+promoterTranscriptFile = global/promoter---transcript
+# Promoter expression file prefix
+promoterExprFile = specific/promoter_expr.rank
+
+# tf---enhancer file prefix
+tfEnhancerFile =  global/tf---enhancer
+# enhancer---transcript file prefix
+enhancerTranscriptFile = global/enhancer---transcript
+# Enhancer expression file prefix
+enhancerExprFile = specific/enhancer_expr.rank
+# Transcript expression file prefix
+transcriptExprFile = specific/transcript_expr.rank
+
+
+##########################################################################
+# NETWORK PROPERTIES
+
+# ========================================================================
+# INPUT NETWORK
+
+# The input network file
+networkFile = data/networks/entrez/borda_sparse.txt
+#networkFile = data/test/simpleNet.txt
+# Delimiter used to separate columns, either 'TAB' or 'SPACE'
+networkFileDelim = TAB
+# Defines if the network should be interpreted as directed or undirected
+isDirected = 0
+# Defines if self loops should be removed from the network
+removeSelfLoops = 1
+# Set true to treat the network as weighted
+isWeighted = 0
+# Threshold for including weighted edges
+threshold = 0
+# Exclude "super-hubs" that connect to more than the given fraction of genes
+superHubThreshold = 0.2
+# Optional file specifying a set of reference nodes
+refNodesFile =
+
+# ========================================================================
+# BASIC NETWORK PROPERTIES
+
+# Node degree (directed networks, also indegree and outdegree)
+computeDegree = 0
+# Node betweenness centrality (edge directionality observed for directed networks)
+computeBetweenness = 0
+# Node clustering coefficient (edge directionality observed for directed networks)
+computeClusteringCoefficient = 0
+# For each node, distance to all other nodes (or all reference nodes; edge directionality observed) and closeness centrality
+computeShortestPathLengths = 0
+
+# ========================================================================
+# KERNELS
+# Only implemented for undirected networks
+
+# P-step random walk kernel (Smola & Kondor, 2003)
+computePstepKernel = 1
+# alpha parameter of p-step random walk kernel (alpha >= 2)
+pstepKernelAlpha = 2
+# Steps p of random walk kernel (comma-separated list of positive integers given in increasing order, the kernel for each listed p will be saved)
+pstepKernelP = 1,2,4
+# Normalize the kernel matrix (divide by the max)
+pstepKernelNormalize = 1
+
+# ========================================================================
+# OUTPUT FILES
+
+# A suffix that is appended to all output files for this run (use to distinguish output files from multiple runs)
+outputSuffix = 
+# Export all computed pairwise node properties (e.g., similarity, distance matrices)
+exportPairwiseNodeProperties = 1
+# Export all computed node properties (e.g., avg. similarity, distance for each node)
+exportNodeProperties = 0
+

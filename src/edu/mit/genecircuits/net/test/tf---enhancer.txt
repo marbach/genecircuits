@@ -1,0 +1,4 @@
+TF	Enhancer	maxMotifConfidence
+tf1	e1	0
+tf2	e1	0.1
+tf2	e2	0.12

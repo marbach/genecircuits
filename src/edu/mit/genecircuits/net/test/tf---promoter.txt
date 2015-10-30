@@ -1,0 +1,7 @@
+TF	Promoter	maxMotifConfidence
+tf2	p2	0.122
+tf3	p1	0.3
+tf3	p2	0.4
+tf3	p3	0.5
+tf4	p3	0.6
+tf4	p4	0.7

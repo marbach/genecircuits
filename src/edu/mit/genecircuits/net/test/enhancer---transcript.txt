@@ -1,0 +1,6 @@
+enhancer	transcript	distance	weight	gene
+e1	t1	0	0.6	g1
+e2	t1	0	0.8	g1
+e1	t2	0	0.4	g1
+e2	t2	0	0.5	g1
+e2	t3	0	0.1	g2
